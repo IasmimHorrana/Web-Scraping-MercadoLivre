@@ -2,6 +2,24 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 
+# Adicionar estilo personalizado ao aplicativo
+st.markdown(
+    """
+    <style>
+    body {
+        color: #DC143C; /* Cor da fonte */
+    }
+    .main {
+        background-color: #1C1C1C;
+    }
+    .sidebar .sidebar-content {
+        background-color: #FFFF00;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 #Conectar ao banco de dados SQLite
 conn = sqlite3.connect('../data/quotes.db')
 
@@ -31,21 +49,21 @@ average_new_price = df['new_price'].mean()
 col3.metric(label="Preço Médio Novo (R$)", value=f"{average_new_price:.2f}")
 
 # Quais marcas são mais encontradas até a 10ª página
-st.subheader('Marcas mais encontradas até a 10ª página')
+st.subheader('Marcas mais encontradas até a 10ª página:')
 col1, col2 = st.columns([4, 2])
 top_10_pages_brands = df.head(500)['brand'].value_counts().sort_values(ascending=False)
 col1.bar_chart(top_10_pages_brands)
 col2.write(top_10_pages_brands)
 
 # Qual o preço médio por marca
-st.subheader('Preço médio por marca')
+st.subheader('Preço médio por marca:')
 col1, col2 = st.columns([4, 2])
 average_price_by_brand = df.groupby('brand')['new_price'].mean().sort_values(ascending=False)
 col1.bar_chart(average_price_by_brand)
 col2.write(average_price_by_brand)
 
 # Qual a satisfação por marca
-st.subheader('Satisfação por marca')
+st.subheader('Satisfação por marca:')
 col1, col2 = st.columns([4, 2])
 df_non_zero_reviews = df[df['reviews_rating_number'] > 0]
 satisfaction_by_brand = df_non_zero_reviews.groupby('brand')['reviews_rating_number'].mean().sort_values(ascending=False)
