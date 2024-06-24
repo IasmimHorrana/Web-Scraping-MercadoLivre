@@ -1,7 +1,7 @@
 <h1 align="center">Pipeline ETL Python - Web Scraping com Scrapy</h1>
 
 <div align="center">
-    <img src="img/diagrama-scraping.png" alt="Fluxograma ETL">
+    <img src="img/img-diagrama-sql.png" alt="Fluxograma ETL">
 </div>
 
 
