@@ -59,4 +59,10 @@ $ scrapy crawl mercadolivre
 ```
 $ streamlit run app.py
 ```
+<div align="center">
+    <img src="img/streamlit-01.png" alt="Fluxograma ETL">
+    <img src="img/streamlit-02.png" alt="Fluxograma ETL">
+    <img src="img/streamlit-03.png" alt="Fluxograma ETL">
+</div>
+
 ### Fim.
